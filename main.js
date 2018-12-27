@@ -1,6 +1,6 @@
 /**
- * @author : Ferhat Kortak <2015510099>
- * @author : Gözde Işıldak <2015510034>
+ * @author : Ferhat Kortak
+ * @author : Gözde Işıldak
  * Dokuz Eylul University - November/2018
  * 
  * Regular Expression to Nfa Converter
@@ -342,6 +342,9 @@ function control(state, arr, automaton, prevstate) {
             if (arr.includes(automaton[state][0][i]) == false) {
                 arr[arr.length] = automaton[state][0][i];
             }
+			if (prevstate != automaton[state][0][i]) {
+                control(automaton[state][0][i], arr, automaton, state);
+			}
         }
     }
 }
