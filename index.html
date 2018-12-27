@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>ToC Homework</title>
+<link rel="stylesheet" href="./material.min.css">
+<script src="./material.min.js"></script>
+<script src="./main.js"></script>
+
+<script>
+
+function test(){
+    var regex = document.getElementById('regex').value;
+    var input = document.getElementById('input').value;
+
+    var div = document.getElementById( 'maindiv' );
+    result = TestNfa(regex,input);
+    if(!result){
+      div.style.backgroundColor = "#c0392b";
+    }else{
+      div.style.backgroundColor = "#3498db";
+    }
+    
+    return result;
+}
+
+</script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body style="background-color: #9c27b0;">
+<!-- Accent-colored raised button with ripple -->
+<!-- Wide card with share menu button -->
+
+
+<div id="maindiv" style="background-color:#3498db; position:fixed; top: 50%; left: 50%; margin-top: -15em; margin-left: -15em; " class="demo-card-wide mdl-card mdl-shadow--2dp" >
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">
+    Theory of Computation Homework
+    </h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+  <div style="width: 45%; float:left">
+    <form action="#">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="regex">
+        <label class="mdl-textfield__label" for="sample3">Regular Expression<label>
+        </div>
+    </form>
+  </div>
+ 
+  <div style="width: 45%; float:right">
+    <form action="#">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="input" onKeyUp="test()">
+        <label class="mdl-textfield__label" for="sample3">Test Input<label>
+      </div>
+    </form>
+  </div>
+
+    <div style="float:right">
+      
+<button id="calculate" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">forward</i>
+      </button>
+      
+
+    </div>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a id="Information" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      Information
+    </a>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>
+</div>
+
+<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+      <script>
+      (function() {
+        'use strict';
+        var snackbarContainer = document.querySelector('#demo-toast-example');
+        var showToastButton = document.querySelector('#calculate');
+        showToastButton.addEventListener('click', function() {
+          'use strict';
+          var data = {message: 'Result : '+test()};
+          snackbarContainer.MaterialSnackbar.showSnackbar(data);
+        });
+      }());
+      </script>
+
+<div id="info" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+      <script>
+      (function() {
+        'use strict';
+        var snackbarContainer = document.querySelector('#info');
+        var showToastButton = document.querySelector('#Information');
+        showToastButton.addEventListener('click', function() {
+          'use strict';
+          var data = {message: 'Created by Ferhat Kortak and Gözde Işıldak'};
+          snackbarContainer.MaterialSnackbar.showSnackbar(data);
+        });
+      }());
+      </script>
+      
+</body>
+
+<style>
+.demo-card-wide.mdl-card {
+  width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('demos/welcome_card.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+  
+}
+</style>
+</html>
